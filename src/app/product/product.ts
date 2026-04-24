@@ -9,14 +9,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product.css'
 })
 export class Product implements OnInit {
-  products: any[] = [];
+  products: any;
+  constructor(private productService: ProductService){
+    }
 
   ngOnInit(): void {
-    this.products = [
-      {id: 1, name: "PC", price: 2900, selected: true},
-          {id: 2, name: "Tablet", price: 3600, selected: false},
-          {id: 3, name: "Printer", price: 3400, selected: true}
-    ];
+   this.products=this.productService.getAllProducts();
   }
 handleDelete(product: any) {
   let v = confirm('Êtes-vous sûr de vouloir supprimer ?');
