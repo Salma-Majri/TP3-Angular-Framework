@@ -14,12 +14,17 @@ export class Product implements OnInit {
     }
 
   ngOnInit(): void {
-   this.products=this.productService.getAllProducts();
+   this.getAllProducts();
   }
+  getAllProducts():void {
+    this.products=this.productService.getAllProducts();
+    }
 handleDelete(product: any) {
   let v = confirm('Êtes-vous sûr de vouloir supprimer ?');
   if (v == true) {
     this.productService.deleteProduct(product);
+    this.getAllProducts();
+
   }
 }
 }
