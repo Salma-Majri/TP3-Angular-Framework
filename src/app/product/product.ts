@@ -18,4 +18,10 @@ export class Product implements OnInit {
           {id: 3, name: "Printer", price: 3400, selected: true}
     ];
   }
+handleDelete(product: any) {
+  let v = confirm('Êtes-vous sûr de vouloir supprimer ?');
+  if (v == true) {
+    this.products = this.products.filter(p => p.id !== product.id);
+  }
+}
 }
