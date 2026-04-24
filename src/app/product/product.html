@@ -11,12 +11,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let p of products">
+      @for(p of products ; track p){
+      <tr>
         <td>{{p.id}}</td>
         <td>{{p.name}}</td>
         <td>{{p.price}}</td>
         <td>{{p.selected}}</td>
       </tr>
+      }
       </tbody>
     </table>
   </div>
