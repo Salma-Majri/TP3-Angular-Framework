@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ProductService } from '../services/product';
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -19,7 +19,7 @@ export class Product implements OnInit {
 handleDelete(product: any) {
   let v = confirm('Êtes-vous sûr de vouloir supprimer ?');
   if (v == true) {
-    this.products = this.products.filter(p => p.id !== product.id);
+    this.productService.deleteProduct(product);
   }
 }
 }
